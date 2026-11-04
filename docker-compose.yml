@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  firebase-emulator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: firebase_mobile_emulator
+    ports:
+      - "4000:4000"   # Interface Web UI de Firebase (http://localhost:4000)
+      - "8080:8080"   # Firestore Emulator
+      - "9099:9099"   # Authentication Emulator
+      - "9000:9000"   # Realtime Database Emulator
+      - "9199:9199"   # Cloud Storage Emulator
+    volumes:
+      # Persistencia de datos locales e importación/exportación automática
+      - ./firebase-data:/app/firebase-data
+      - ./firebase.json:/app/firebase.json
+      - ./.firebaserc:/app/.firebaserc
+    environment:
+      - GSE_PROJECT_ID=demo-mobile-app
+    restart: unless-stopped

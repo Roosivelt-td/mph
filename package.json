@@ -1,0 +1,12 @@
+{
+  "name": "firebase-mobile-emulator-docker",
+  "version": "1.0.0",
+  "description": "Modelo de Docker con Firebase Local Emulator Suite para aplicaciones móviles",
+  "main": "seed.js",
+  "scripts": {
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.0.0"
+  }
+}
